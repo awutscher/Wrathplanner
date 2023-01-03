@@ -3,6 +3,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CharacterfunctionService } from '../characterfunction.service';
 
 
+
 @Component({
   selector: 'app-characters-checklist',
   templateUrl: './characters-checklist.component.html',
@@ -11,8 +12,9 @@ import { CharacterfunctionService } from '../characterfunction.service';
 export class CharactersChecklistComponent implements OnInit {
 
   constructor(
-    private service: CharacterfunctionService,
+    public CharacterfunctionService: CharacterfunctionService,
   ) { }
+  
 
   ngOnInit(): void {
   }
