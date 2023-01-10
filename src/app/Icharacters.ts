@@ -1,5 +1,6 @@
 export interface Icharacters {
-    name: string;
+    
+    name?: string;
     naxxramas25?: boolean;
     naxxramas10?: boolean;
     os10?: boolean;
