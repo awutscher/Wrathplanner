@@ -1,11 +1,12 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { ArrayType } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { asNativeElements, Component, OnInit } from '@angular/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CharacterfunctionService } from '../characterfunction.service';
 import { Icharacters } from '../Icharacters';
 import { Directive, ElementRef, Input, OnChanges, Sanitizer, SecurityContext,
   SimpleChanges } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 
 
@@ -14,16 +15,27 @@ import { Directive, ElementRef, Input, OnChanges, Sanitizer, SecurityContext,
   templateUrl: './characters-checklist.component.html',
   styleUrls: ['./characters-checklist.component.scss']
 })
+//test , dont know if works 
+/* @Pipe ({name:'characters'})
+export class CharacterPipe implements PipeTransform{
+  transform(characters:Icharacters[]){
+    return characters;
+  }
+} */
+
 export class CharactersChecklistComponent implements OnInit {
-  elementRef: any;
+  /* elementRef: any; */
+
   
   constructor(
     public CharacterfunctionService: CharacterfunctionService,
+    /* public characters: ElementRef */
   ) {
-    var characters:any = this.CharacterfunctionService.allStorage()
+    /* this.elementRef. */ /* var characters = this.CharacterfunctionService.allStorage()
     console.log(characters)
-    console.log(Array.isArray(characters))
-    characters = characters as Icharacters[]
+    console.log(Array.isArray(characters)) */
+    /* characters = characters as Icharacters[] */
+    
   }
 
   
@@ -35,9 +47,11 @@ export class CharactersChecklistComponent implements OnInit {
   }
   ngOnInit(): void {
     var characters = this.CharacterfunctionService.allStorage()
-    console.log(characters)
+    /* console.log(characters) */
     console.log(Array.isArray(characters))
-    characters = characters as Icharacters[]
+    /* characters = characters as Icharacters[] */
+    console.log(characters)
+    
     /* console.log(chars) */
     /* console.log(typeof(characters)) */
     /* console.log(typeof(Object.entries(characters))) */
