@@ -8,8 +8,7 @@ import { Icharacters } from 'src/app/Icharacters';
 export class CharacterfunctionService {
 
   constructor(
-  ) {
-   }
+  ) {}
     /* changeChecked(){
     if(localStorage.getItem("placeholderID"):"Naxxramas" = true)
   } */
@@ -34,18 +33,21 @@ export class CharacterfunctionService {
   } 
 
   allStorage() {
-    var values:any = [],
+    var values = [],
         keys = Object.keys(localStorage),
         i = keys.length;
     while ( i-- ) {
       //parse each value individually and then push em into value array
         let tempValue:any = localStorage.getItem(keys[i])
-        let tempParsedValue = JSON.parse(tempValue)
+        let tempParsedValue = JSON.parse(tempValue) // returns objects in object?
+        /* let tempParsedValue = tempValue // returns strings in object?  */
         values.push( tempParsedValue );
+        console.log(typeof(values))
     }
-    //returns array of objects / each object is a character
+    //returns object :(  /
     console.log(values)
     return values;
+    
   }
 
   ngOnInit(): void {
