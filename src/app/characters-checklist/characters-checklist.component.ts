@@ -29,9 +29,10 @@ export class CharactersChecklistComponent implements OnInit {
     console.log(characters) */
   }
   ngOnInit(): void {
-    var characters = this.CharacterfunctionService.allStorage()
+    /* var characters = this.CharacterfunctionService.allStorage() */
+    var characters:Icharacters = this.CharacterfunctionService.allStorage()
     console.log(characters)
-    /* let chars:Icharacters = characters */
+    console.log(Array.isArray(characters))
     /* console.log(chars) */
     console.log(typeof(characters))
     /* console.log(typeof(Object.entries(characters))) */
