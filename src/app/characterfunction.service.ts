@@ -41,13 +41,11 @@ export class CharacterfunctionService {
         let tempValue:any = localStorage.getItem(keys[i])
         let tempParsedValue = JSON.parse(tempValue) // returns objects in object?
         /* let tempParsedValue = tempValue // returns strings in object?  */
-        values.push( tempParsedValue );
-        console.log(typeof(values))
+        values.push(tempParsedValue);
     }
     //returns object :(  /
     console.log(values)
     return values;
-    
   }
 
   ngOnInit(): void {
