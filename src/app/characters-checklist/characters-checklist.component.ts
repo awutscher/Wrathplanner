@@ -19,7 +19,12 @@ export class CharactersChecklistComponent implements OnInit {
   
   constructor(
     public CharacterfunctionService: CharacterfunctionService,
-  ) {}
+  ) {
+    var characters:any = this.CharacterfunctionService.allStorage()
+    console.log(characters)
+    console.log(Array.isArray(characters))
+    characters = characters as Icharacters[]
+  }
 
   
   ngonChange():void{
@@ -29,12 +34,12 @@ export class CharactersChecklistComponent implements OnInit {
     console.log(characters) */
   }
   ngOnInit(): void {
-    /* var characters = this.CharacterfunctionService.allStorage() */
-    var characters:Icharacters = this.CharacterfunctionService.allStorage()
+    var characters = this.CharacterfunctionService.allStorage()
     console.log(characters)
     console.log(Array.isArray(characters))
+    characters = characters as Icharacters[]
     /* console.log(chars) */
-    console.log(typeof(characters))
+    /* console.log(typeof(characters)) */
     /* console.log(typeof(Object.entries(characters))) */
     /* console.log(typeof(chars)) */
   } 
