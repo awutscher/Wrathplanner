@@ -15,13 +15,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   templateUrl: './characters-checklist.component.html',
   styleUrls: ['./characters-checklist.component.scss']
 })
-//test , dont know if works 
-/* @Pipe ({name:'characters'})
-export class CharacterPipe implements PipeTransform{
-  transform(characters:Icharacters[]){
-    return characters;
-  }
-} */
+
 
 export class CharactersChecklistComponent implements OnInit {
   /* elementRef: any; */

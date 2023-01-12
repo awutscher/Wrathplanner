@@ -9,9 +9,6 @@ export class CharacterfunctionService {
 
   constructor(
   ) {}
-    /* changeChecked(){
-    if(localStorage.getItem("placeholderID"):"Naxxramas" = true)
-  } */
 
   newChar(){
     var output = "placeholder"
