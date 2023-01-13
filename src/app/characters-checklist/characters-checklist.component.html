@@ -3,12 +3,6 @@
 
 <div *ngFor=" let character of characters"> 
     <div>Character - {{character.name}}</div>
-    <mat-checkbox class="example-margin" ng-checked="character.naxxramas10">Check Me!</mat-checkbox>
-    <!-- <mat-checkbox class="example-margin" [checked]="{{character.naxxramas10}}"></mat-checkbox>
-    <mat-checkbox class="example-margin">{{character.naxxramas10}}</characters></mat-checkbox> -->
-    <!-- <mat-checkbox class="example-margin">Check Me!</mat-checkbox>
-    <mat-checkbox class="example-margin">Check Me!</mat-checkbox>
-    <mat-checkbox class="example-margin">Check Me!</mat-checkbox>
-    <mat-checkbox class="example-margin">Check Me!</mat-checkbox> -->
+    <mat-checkbox class="example-margin" [checked]="character.naxxramas10"></mat-checkbox>
 </div>
 

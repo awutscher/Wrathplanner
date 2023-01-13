@@ -18,7 +18,7 @@ export class CharacterfunctionService {
     }
     else{
     let newCharName:string = input
-    localStorage.setItem(newCharName,JSON.stringify({name:newCharName,Naxxramas10:"true",naxxramas25:false,os10:false,os25:false,eoe10:false,eoe25:false,ulduar10:false,ulduar25:false}))
+    localStorage.setItem(newCharName,JSON.stringify({name:newCharName,naxxramas10:true,naxxramas25:false,os10:false,os25:false,eoe10:false,eoe25:false,ulduar10:false,ulduar25:false}))
     }
     /* if(localStorage.getItem("Palaqt") !== "string"){ // Testing Part
     return}
