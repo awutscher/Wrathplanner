@@ -29,6 +29,33 @@ export class CharacterfunctionService {
     console.log(parseOutput) */
   } 
 
+  change(charname:any, instance:any){
+    let charToChange = localStorage.getItem(charname)!
+    /* console.log(instance) */
+    /* console.log(charToChange?.includes('{{instance:true}}') == false) */
+    /* console.log(charname) */
+    console.log(charToChange)
+    /* console.log(typeof(charToChange)) */
+    if(charToChange.includes('{{instance:true}}') == false){
+      charToChange.replace('"{{instance}}":true', '"{{instance}}":false')
+      /* console.log(charToChange) */
+      localStorage.removeItem(charname)
+      console.log(charname + "if")
+      localStorage.setItem("test2", charToChange)
+    }
+    else{
+      charToChange.replace('"{{instance}}":false', '"{{instance}}":true')
+      /* console.log("changed to true") */
+      /* console.log(charToChange) */
+      localStorage.removeItem(charname)
+      console.log(charname + "else")
+      localStorage.setItem("test2", charToChange)
+    }
+    /* localStorage.removeItem(charname)
+    localStorage.setItem("test2", charToChange!) */
+    
+  }
+
   allStorage() {
     var values = [],
         keys = Object.keys(localStorage),
@@ -40,6 +67,10 @@ export class CharacterfunctionService {
     }
     console.log(values)
     return values;
+  }
+
+  clearStorage(){
+    localStorage.clear();
   }
 
   ngOnInit(): void {

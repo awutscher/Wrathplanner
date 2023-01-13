@@ -24,7 +24,9 @@ export class CharactersChecklistComponent implements OnInit {
   constructor(
     public CharacterfunctionService: CharacterfunctionService,
   ) {}
-
+  ngOnChange():void{
+    this.ngOnInit();
+  }
   ngOnInit(): void {
     this.characters = this.CharacterfunctionService.allStorage()
     /* console.log(Array.isArray(this.characters))

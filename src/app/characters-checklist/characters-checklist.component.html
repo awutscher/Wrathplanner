@@ -1,8 +1,72 @@
 <button (click)="CharacterfunctionService.newChar()"> Make New Character </button>
-<button (click)="CharacterfunctionService.allStorage()">Test Storage </button>
+<button (click)="CharacterfunctionService.clearStorage()">Test Storage </button>
 
-<div *ngFor=" let character of characters"> 
+<div *ngFor=" let character of characters" class="d-flex p-3 justify-content-evenly"> 
     <div>Character - {{character.name}}</div>
-    <mat-checkbox class="example-margin" [checked]="character.naxxramas10"></mat-checkbox>
+    <div class="d-flex flex-column">
+        <div>
+            <label>Naxxramas 10</label>
+        </div>
+        <div class="d-flex justify-content-around">
+            <mat-checkbox class="example-margin" [checked]="character.naxxramas10"
+             (click)="CharacterfunctionService.change(character.name, 'naxxramas10')"></mat-checkbox>
+        </div>
+    </div>
+    <div class="d-flex flex-column">
+        <div>
+            <label>Naxxramas 25</label>
+        </div>
+        <div class="d-flex justify-content-around">
+            <mat-checkbox class="example-margin" [checked]="character.naxxramas25"></mat-checkbox>
+        </div>
+    </div>
+    <div class="d-flex flex-column">
+        <div>
+            <label>Obsidian Sanctum 10</label>
+        </div>
+        <div class="d-flex justify-content-around">
+            <mat-checkbox class="example-margin" [checked]="character.os10"></mat-checkbox>
+        </div>
+    </div>
+    <div class="d-flex flex-column">
+        <div>
+            <label>Obsidian Sanctum 25</label>
+        </div>
+        <div class="d-flex justify-content-around">
+            <mat-checkbox class="example-margin" [checked]="character.os25"></mat-checkbox>
+        </div>
+    </div>
+    <div class="d-flex flex-column">
+        <div>
+            <label>Eye of Eternity 10</label>
+        </div>
+        <div class="d-flex justify-content-around">
+            <mat-checkbox class="example-margin" [checked]="character.eoe10"></mat-checkbox>
+        </div>
+    </div>
+    <div class="d-flex flex-column">
+        <div>
+            <label>Eye of Eternity 25</label>
+        </div>
+        <div class="d-flex justify-content-around">
+            <mat-checkbox class="example-margin" [checked]="character.eoe25"></mat-checkbox>
+        </div>
+    </div>
+    <div class="d-flex flex-column">
+        <div>
+            <label>Ulduar 10</label>
+        </div>
+        <div class="d-flex justify-content-around">
+            <mat-checkbox class="example-margin" [checked]="character.ulduar10"></mat-checkbox>
+        </div>
+    </div>
+    <div class="d-flex flex-column">
+        <div>
+            <label>Ulduar 25</label>
+        </div>
+        <div class="d-flex justify-content-around">
+            <mat-checkbox class="example-margin" [checked]="character.ulduar25"></mat-checkbox>
+        </div>
+    </div>
 </div>
 
