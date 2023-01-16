@@ -10,7 +10,7 @@ export class CharacterfunctionService {
   constructor(
   ) {}
 
-  newChar(){
+  newChar(){ // store each char as storage entry  Method 1 
     var output = "placeholder"
     var input = prompt("please insert Charactername")
     if(typeof input !== "string"){
@@ -29,34 +29,61 @@ export class CharacterfunctionService {
     console.log(parseOutput) */
   } 
 
-  change(charname:any, instance:any){
-    let charToChange = localStorage.getItem(charname)!
-    /* console.log(instance) */
-    /* console.log(charToChange?.includes('{{instance:true}}') == false) */
-    /* console.log(charname) */
-    console.log(charToChange)
-    /* console.log(typeof(charToChange)) */
-    if(charToChange.includes('{{instance:true}}') == false){
-      charToChange.replace('"{{instance}}":true', '"{{instance}}":false')
-      /* console.log(charToChange) */
-      localStorage.removeItem(charname)
-      console.log(charname + "if")
-      localStorage.setItem("test2", charToChange)
+  newWowChar(){ // store all chars in one storage entry  Method 2 
+    var input = prompt("please insert Charactername")
+    let newCharName:string = input!
+    if(typeof input !== "string"){
+      return;
+    }
+    else if(localStorage.getItem("wowChars") === null){
+    localStorage.setItem("wowChars",JSON.stringify([{name:newCharName,naxxramas10:true,naxxramas25:false,os10:false,os25:false,eoe10:false,eoe25:false,ulduar10:false,ulduar25:false}]))
+    let storage = localStorage.getItem("wowChars")
+    let wowChars = JSON.parse(storage!)
+  }
+    else if(localStorage.getItem("wowChars") !== null){
+      let storage = localStorage.getItem("wowChars")
+      let wowChars = JSON.parse(storage!)
+      /* console.log(Array.isArray(wowChars)) */ // true
+      /* console.log(wowChars) */
+      localStorage.removeItem("wowChars")
+      let additive = {name:newCharName,naxxramas10:true,naxxramas25:false,os10:false,os25:false,eoe10:false,eoe25:false,ulduar10:false,ulduar25:false}
+      wowChars.push(additive)
+      localStorage.setItem("wowChars", JSON.stringify(wowChars))
+    }
+  } 
+
+  test(){
+    if(localStorage.getItem("wowChars") === null){
+      console.log("noitem")
     }
     else{
-      charToChange.replace('"{{instance}}":false', '"{{instance}}":true')
-      /* console.log("changed to true") */
-      /* console.log(charToChange) */
-      localStorage.removeItem(charname)
-      console.log(charname + "else")
-      localStorage.setItem("test2", charToChange)
+      console.log(localStorage.getItem("wowChars"));
     }
-    /* localStorage.removeItem(charname)
-    localStorage.setItem("test2", charToChange!) */
+  }
+
+  change(i:number, instance:any){
+
+    let storage = localStorage.getItem("wowChars")
+    let wowChars:any = JSON.parse(storage!)
+    /* console.log(wowChars) */
+    if(wowChars[i].instance = true){
+      wowChars[i].instance = false
+      console.log(wowChars[i].instance)
+      console.log(wowChars)
+      localStorage.removeItem("wowChars");
+      localStorage.setItem("wowChars", JSON.stringify(wowChars))
+    }
+    else{
+      wowChars[i].instance = true
+      /* console.log(wowChars[i].instance) */
+      localStorage.removeItem("wowChars");
+      localStorage.setItem("wowChars", JSON.stringify(wowChars))
+      return;
+    }
     
   }
 
-  allStorage() {
+  allStorage() { // part of storage version 1
     var values = [],
         keys = Object.keys(localStorage),
         i = keys.length;

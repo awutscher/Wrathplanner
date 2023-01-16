@@ -20,15 +20,19 @@ import { Icharacters } from '../Icharacters';
 
 export class CharactersChecklistComponent implements OnInit {
   characters:any = [];
+  wowChars:any = [];
+  storage:any = [];
   
   constructor(
     public CharacterfunctionService: CharacterfunctionService,
   ) {}
-  ngOnChange():void{
+  /* ngOnChange():void{ // doesnt work
     this.ngOnInit();
-  }
+  } */
   ngOnInit(): void {
     this.characters = this.CharacterfunctionService.allStorage()
+    this.storage = localStorage.getItem("wowChars")
+    this.wowChars = JSON.parse(this.storage)
     /* console.log(Array.isArray(this.characters))
     console.log(this.characters) */
     /* console.log(this.characters[0].name)
